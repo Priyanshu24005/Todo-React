@@ -20,12 +20,17 @@ let addTask = (text,date) => {
   ]);
 };
 
+const delettask = (id) => {
+  let deltask = tasks.filter((e)=>e.id !== id)
+  setTasks(deltask)
+}
+
 
   return (
     <center><div className='self-center m-10'>
       <Input addTask={addTask}/>
       {tasks.map((e)=>{
-         return <Tasks key={e.id} task={e} />
+         return <Tasks key={e.id} task={e} del={delettask}/>
       })}
       
     </div>
